@@ -1,0 +1,24 @@
+h1{
+    text-align: center;
+    text-emphasis-color: brown;
+    color: aqua;
+}
+
+
+.button-style{
+    background-color: bisque;
+}
+.table-responsive{
+    background-color: azure;
+}
+.thead{
+   text-decoration-color: antiquewhite;
+   color: rgb(213, 236, 193);
+}
+th{
+    color: rgb(231, 47, 161);
+}
+tbody{
+    
+    color: rgb(5, 9, 252);
+}
