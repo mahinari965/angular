@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular';
+  // title = 'angular';
+  // mahendra ='leaner';
+  // disabled:boolean=false;
+  // enable='false';
+
+  // isactive:boolean=false;
+  // applya1:boolean=false;
+
+
 }

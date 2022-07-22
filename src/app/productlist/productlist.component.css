@@ -1,7 +1,7 @@
 h1{
     text-align: center;
     text-emphasis-color: brown;
-    color: aqua;
+    color: rgb(41, 158, 194);
 }
 
 
@@ -18,7 +18,6 @@ h1{
 th{
     color: rgb(231, 47, 161);
 }
-tbody{
-    
-    color: rgb(5, 9, 252);
+.container{
+    background: rgb(77, 226, 8);
 }

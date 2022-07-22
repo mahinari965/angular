@@ -1,22 +1,32 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductlistComponent } from './productlist/productlist.component';
+import { ProductService } from './services/product.service';
+import { StarComponent } from './star/star.component';
+import { SampleComponent } from './sample/sample.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductlistComponent
+    ProductlistComponent,
+    StarComponent,
+    SampleComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+  
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

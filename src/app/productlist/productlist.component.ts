@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { observable, Observable } from 'rxjs';
+import { ProductService } from '../services/product.service';
+
+
 
 @Component({
   selector: 'app-productlist',
@@ -8,19 +12,21 @@ import { Component, OnInit } from '@angular/core';
 export class ProductlistComponent implements OnInit {
   pageTitle:string="Product List";
   head='product-view';
-  imageWidth:number=10;
-  imageMargin:number=2;
+  imageWidth:number=100;
+  imageMargin:number=30;
   listFilter:string='search';
   showImage:boolean=false;
   
 // private_listFilter: string='';
-// get listFilter():string{
-//   return this._listFilter;
+//   performFilter: any;
+//   private _listfilter: any;
+// get listfilter():string{
+//   return this.listFilter;
 // }
-// set listFilter(value:string){
-//   this._listFilter= value;
+// set listfilter(value:string){
+//   this.listfilter= value;
 //   console.log('in setter:',value);
-//   this.filteredproducts =this.performFilter(value);
+//   this.filteredproducts =this.performFilter(this._listfilter);
 // }
 
 // filteredproducts:any[]=[];
@@ -31,11 +37,11 @@ export class ProductlistComponent implements OnInit {
       "productId":1,
       "productName":"kitkat",
       "productCode":"k123",
-      "releaseDate":"july 20, 2022",
+      "releaseDate":"09, 20, 2022",
       "description":"good taste",
       "price":100,
       "starRating":5.0,
-      "imageUrl":"D:\angular traning\angular\src\assets\kikat1.jpg"
+      "imageUrl":"assets/kikat1.jpg"
     },
     {
       "productId":2,
@@ -45,37 +51,37 @@ export class ProductlistComponent implements OnInit {
       "description":"tasty cremy",
       "price":79.99,
       "starRating":4.8,
-      "imageUrl":"D:\angular traning\angular\src\assets\diarymilk.jpg"
+      "imageUrl":"assets/diarymilk.jpg"
     },
     {
       "productId":3,
       "productName":"nugut",
       "productCode":"n123",
-      "releaseDate":"july 24, 2022",
+      "releaseDate":"june 24, 2022",
       "description":"cruchy one",
       "price":69.99,
       "starRating":4.6,
-      "imageUrl":"D:\angular traning\angular\src\assets\nugut.jpg"
+      "imageUrl":"assets/nugut.jpg"
     },
     {
       "productId":4,
       "productName":"borbon",
       "productCode":"b12",
-      "releaseDate":"july 26 , 2022",
+      "releaseDate":"may 26 , 2022",
       "description":"good",
-      "price":.59,
+      "price":23.59,
       "starRating":4.4,
-      "imageUrl":"D:\angular traning\angular\src\assets\borbon.jpg"
+      "imageUrl":"assets/borbon.jpg"
     },
     {
       "productId":5,
       "productName":"cherry",
       "productCode":"c123",
-      "releaseDate":"july 28, 2022",
+      "releaseDate":"april 28, 2022",
       "description":"good ",
       "price":42.00,
-      "starRating":4.2,
-      "imageUrl":"D:\angular traning\angular\src\assets\cherry.jpg"
+      "starRating":3.0,
+      "imageUrl":"assets/cherry.jpg"
     }
   ];
 
@@ -88,10 +94,40 @@ export class ProductlistComponent implements OnInit {
   toggleImage(): void{
     this.showImage= !this.showImage;
   }
+  
 
-  constructor() { }
+  constructor(private productService :ProductService ) {
+    // this.performFilter(filterBy: string): any[] {
+    //   filterBy = filterBy.toLocaleLowerCase();
+    //   return this.products.filter((products: any) =>
+    //     product.productName.toLocaleLowerCase().includes(filterBy));
+    // }
+
+   }
 
   ngOnInit(): void {
+    console.log("firstmethod");
+    
+    this.getproducts();
+  }
+
+  getproducts(){
+    this.productService.getproductlist().subscribe(
+    response =>{
+      
+      console.log(response);
+      
+    }
+    )
+    
+  }
+
+  onRatingClicked(message:string):void{
+    this.pageTitle ='product List' +message;
   }
 
 }
+function filterBy(filterBy: any, string: any) {
+  throw new Error('Function not implemented.');
+}
+
