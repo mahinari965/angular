@@ -6,9 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductlistComponent } from './productlist/productlist.component';
-import { ProductService } from './services/product.service';
 import { StarComponent } from './star/star.component';
-import { SampleComponent } from './sample/sample.component';
 
 
 @NgModule({

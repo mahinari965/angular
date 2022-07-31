@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { observable, Observable } from 'rxjs';
-import { ProductService } from '../services/product.service';
 
 
 
@@ -10,27 +8,7 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./productlist.component.css']
 })
 export class ProductlistComponent implements OnInit {
-  pageTitle:string="Product List";
-  head='product-view';
-  imageWidth:number=100;
-  imageMargin:number=30;
-  listFilter:string='search';
-  showImage:boolean=false;
-  
-// private_listFilter: string='';
-//   performFilter: any;
-//   private _listfilter: any;
-// get listfilter():string{
-//   return this.listFilter;
-// }
-// set listfilter(value:string){
-//   this.listfilter= value;
-//   console.log('in setter:',value);
-//   this.filteredproducts =this.performFilter(this._listfilter);
-// }
 
-// filteredproducts:any[]=[];
-  
 
   products:any[]=[
     {
@@ -85,49 +63,12 @@ export class ProductlistComponent implements OnInit {
     }
   ];
 
-  // performFilter(filterBy:string):any[]{(
-  //   filterBy =filterby.tolocalelowercase().includes(filterby));
-  //   return this.products.filter(products:any)=>
-  //   product.productName)
-  // }
-
   toggleImage(): void{
     this.showImage= !this.showImage;
   }
-  
 
-  constructor(private productService :ProductService ) {
-    // this.performFilter(filterBy: string): any[] {
-    //   filterBy = filterBy.toLocaleLowerCase();
-    //   return this.products.filter((products: any) =>
-    //     product.productName.toLocaleLowerCase().includes(filterBy));
-    // }
-
-   }
-
-  ngOnInit(): void {
-    console.log("firstmethod");
-    
-    this.getproducts();
-  }
-
-  getproducts(){
-    this.productService.getproductlist().subscribe(
-    response =>{
-      
-      console.log(response);
-      
-    }
-    )
-    
-  }
 
   onRatingClicked(message:string):void{
     this.pageTitle ='product List' +message;
   }
-
 }
-function filterBy(filterBy: any, string: any) {
-  throw new Error('Function not implemented.');
-}
-
